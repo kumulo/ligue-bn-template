@@ -1,0 +1,39 @@
+@import "vars.less";
+
+body {
+    font-size: 10px;
+    font-family: Lato, sans-serif;
+    color: @black;
+    background: @mid-grey;
+    #masthead {
+        background: @mid-green;
+        color: @white;
+        margin-bottom: 20px;
+        height: 120px;
+        .skip-link {
+            display: none;
+        }
+        a {
+            color: @white;
+        }
+    }
+    #content {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    .ui.rail {
+        width: 25%;
+        box-sizing: border-box;
+        top: 140px;
+        &#leftside {
+            float: left;
+            padding-right: 20px;
+            left: 0;
+        }
+        &#rightside {
+            float: right;
+            padding-left: 20px;
+            right: 0;
+        }
+    }
+}
