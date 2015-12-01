@@ -50,7 +50,8 @@ function liguebn_setup() {
 	 * See: https://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 825, 510, true );
+	set_post_thumbnail_size( 750, 345, true );
+	add_image_size( 'list-post-thumbnails',  750, 345, array( 'center', 'center') );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
@@ -103,13 +104,13 @@ function liguebn_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'liguebn_scripts' );
 
-
 /**
  * Register widget area.
  *
  * @link https://codex.wordpress.org/Function_Reference/register_sidebar
  */
 function liguebn_widgets_init() {
+	register_widget( 'ClassementWidget' );
 	register_sidebar( array(
 		'name'          => __( 'Left Side', 'liguebn' ),
 		'id'            => 'left',
@@ -123,10 +124,21 @@ function liguebn_widgets_init() {
 		'name'          => __( 'Right Side', 'liguebn' ),
 		'id'            => 'right',
 		'description'   => __( 'Add widgets here to appear in your sidebar.', 'liguebn' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Left Side for single pages', 'liguebn' ),
+		'id'            => 'left-single',
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'liguebn' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'liguebn_widgets_init' );
+
+require get_template_directory() . '/inc/custom-widget.php';

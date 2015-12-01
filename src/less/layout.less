@@ -5,35 +5,263 @@ body {
     font-family: Lato, sans-serif;
     color: @black;
     background: @mid-grey;
+    font-weight: 400;
     #masthead {
         background: @mid-green;
         color: @white;
         margin-bottom: 20px;
         height: 120px;
+        position: relative;
+        @media @smartphones, @tablets-v, @tablets {
+            height: 70px;
+        }
         .skip-link {
             display: none;
         }
         a {
             color: @white;
         }
+        .site-branding {
+            margin-left: 140px;
+            @media @smartphones, @tablets-v, @tablets {
+                margin-left: 80px;
+            }
+            .site-title,
+            .site-description {
+                display: inline;
+                font-family: Dosis, sans-serif;
+                font-weight: 200;
+                text-transform: uppercase;
+            }
+            .site-title {
+                font-size: 500%;
+            }
+            .site-description {
+                font-size: 180%;
+                margin-left: 10px;
+                @media @smartphones, @tablets-v {
+                    display: none;
+                }
+            }
+        }
+        .secondary-toggle {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            line-height: 68px;
+            width: 68px;
+            font-size: 300%;
+            color: @mid-green;
+            background: @white;
+            border: 0 none;
+            outline: 0;
+            text-align: center;
+            .icon {
+                margin: 0;
+            }
+            @media @smartphones, @tablets-v, @tablets {
+                display: block;
+            }
+        }
+    }
+    #colophon {
+        margin-top: 20px;
+        background: @dark-grey;
+        padding: 10px;
+        text-align: center;
+        color: @white;
+        a {
+            color: @white;
+            font-size: 120%;
+            font-weight: 300;
+        }
     }
     #content {
+        /*margin-top: 160px;*/
         margin-left: 25%;
         margin-right: 25%;
+        @media @little-desktop {
+            margin-left: 30%;
+            margin-right: 20%;
+        }
+        @media @smartphones, @tablets-v, @tablets {
+            margin-left: 40%;
+            margin-right: 20px;
+        }
+        @media @smartphones {
+            margin-left: 20px;
+        }
     }
     .ui.rail {
         width: 25%;
         box-sizing: border-box;
         top: 140px;
+        font-size: 100%;
+        padding: 0;
+        @media @smartphones, @tablets-v, @tablets {
+            top: 90px;
+        }
         &#leftside {
             float: left;
-            padding-right: 20px;
             left: 0;
+            @media @little-desktop {
+                font-size: 80%;
+                width: 30%;
+            }
+            @media @smartphones, @tablets-v, @tablets {
+                width: 40%;
+            }
+            @media @smartphones, @tablets-v {
+                font-size: 80%;
+            }
+            @media @smartphones {
+                display: none;
+            }
         }
         &#rightside {
             float: right;
-            padding-left: 20px;
             right: 0;
+            background: red;
+            @media @little-desktop {
+                width: 20%;
+            }
+            @media @smartphones, @tablets-v, @tablets {
+                display: none;
+            }
+        }
+        .widget {
+            position: relative;
+            margin: 1px 20px 0;
+            border-top: 1px solid @white;
+            &:before {
+                content: '';
+                height: 1px;
+                width: 100%;
+                top: -2px;
+                left: 0;
+                background: @dark-mid-grey;
+                position: absolute;
+            }
+            .widget-title {
+                padding: 10px 0;
+                font-size: 240%;
+                font-weight: 900;
+                text-transform: uppercase;
+                color: @mid-green;
+                position: relative;
+                &:after {
+                    position: absolute;
+                    content: '';
+                    height: 1px;
+                    width: 100%;
+                    bottom: 1px;
+                    left: 0;
+                    background: @dark-mid-grey;
+                }
+                border-bottom: 1px solid @white;
+            }
+            &.widget_classementwidget {
+                .journeys {
+                    padding: 10px;
+                    .journey {
+                        padding: 10px 0;
+                        .journey-title {
+                            color: @dark-grey;
+                            font-size: 180%;
+                            font-weight: 800;
+                            padding-bottom: 15px;
+                        }
+                        .matchs {
+                            display: table;
+                            width: 100%;
+                            .match {
+                                display: table-row;
+                                .t1,
+                                .t2,
+                                .score {
+                                    display: table-cell;
+                                    vertical-align: middle;
+                                    text-align: right;
+                                    height: 55px;
+                                    border-bottom: 1px solid @dark-mid-grey;
+                                }
+                                .t1,
+                                .t2 {
+                                    width: 40%;
+                                    max-width: 40%;
+                                    color: @mid-green;
+                                    font-size: 140%;
+                                    font-weight: 800;
+                                    box-sizing: border-box;
+                                    padding-left: 20px;
+                                }
+                                .t2 {
+                                    text-align: left;
+                                    padding-right: 20px;
+                                    padding-left: 0;
+                                }
+                                .score {
+                                    width: 20%;
+                                    color: @dark-grey;
+                                    font-size: 200%;
+                                    font-weight: 800;
+                                    text-align: center;
+                                    white-space: nowrap;
+                                }
+                                &:first-child {
+                                    .t1,
+                                    .t2,
+                                    .score {
+                                        border-top: 1px solid @dark-mid-grey;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #primary {
+        .post {
+            background: @white;
+            margin-top: 20px;
+            .entry-thumnail {
+                border-bottom: 2px solid @mid-green;
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+            .entry-header {
+                padding: 20px;
+                .entry-title {
+                    font-family: Dosis, sans-serif;
+                    font-size: 300%;
+                    font-weight: 300;
+                    color: @mid-green;
+                    text-transform: uppercase;
+                    border-bottom: 2px solid @mid-grey;
+                    padding-bottom: 20px;
+                    a {
+                        color: @mid-green;
+                        display: block;
+                    }
+                }
+            }
+            .entry-content {
+                padding: 0 20px 20px;
+                font-size: 140%;
+            }
+            .entry-footer {
+
+            }
+            &:first-child {
+                margin-top: 0;
+            }
         }
     }
 }

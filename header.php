@@ -23,7 +23,7 @@
 
     <header id="masthead" class="site-header" role="banner">
 	   <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a>
-        <div class="site-branding">
+        <div class="site-branding clearfix">
             <?php
                 if ( is_front_page() && is_home() ) : ?>
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -36,15 +36,22 @@
                     <p class="site-description"><?php echo $description; ?></p>
                 <?php endif;
             ?>
-            <button class="secondary-toggle"><?php _e( 'Menu and widgets', 'twentyfifteen' ); ?></button>
         </div><!-- .site-branding -->
+        <button class="ui secondary-toggle">
+            <i class="sidebar icon"></i>
+        </button>
+        <div id="navigation" class="ui sidebar">toto</div>
     </header><!-- .site-header -->
 
 
 	<div class="clearfix">
 	<aside id="leftside" class="ui rail">
 	   <div class="ui sticky">
+        <?php if ( is_single() ) : ?>
+		<?php dynamic_sidebar( 'left-single' ); ?>
+        <?php else : ?>
 		<?php dynamic_sidebar( 'left' ); ?>
+        <?php endif; ?>
 	   </div>
 	</aside><!-- .sidebar -->
 	<div id="content" class="site-content">

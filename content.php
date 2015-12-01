@@ -10,11 +10,18 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-		// Post thumbnail.
-		the_post_thumbnail();
-	?>
-
+    <div class="entry-thumnail">
+        <?php if ( !is_single() ) : ?>
+        <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+		<?php endif; ?>
+        <?php
+            // Post thumbnail.
+            the_post_thumbnail('list-post-thumbnails');
+        ?>
+        <?php if ( !is_single() ) : ?>
+        </a>
+		<?php endif; ?>
+    </div>
 	<header class="entry-header">
 		<?php
 			if ( is_single() ) :
