@@ -75,6 +75,7 @@ function liguebn_setup() {
 	add_theme_support( 'post-formats', array(
 		'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
 	) );
+	add_post_type_support( 'page', 'post-formats');
 }
 endif; // liguebn_setup
 add_action( 'after_setup_theme', 'liguebn_setup' );
@@ -140,5 +141,22 @@ function liguebn_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'liguebn_widgets_init' );
+
+function add_menu_item_class( $items ) {
+
+	$parents = array();
+	foreach ( $items as $item ) {
+	}
+
+	foreach ( $items as $item ) {
+		if ( $item->is_item_home ) {
+			$item->classes[] = 'the-fucking-home';
+		}
+        $item->classes[] = 'item';
+	}
+
+	return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'add_menu_item_class' );
 
 require get_template_directory() . '/inc/custom-widget.php';

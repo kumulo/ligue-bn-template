@@ -24,6 +24,7 @@
     <header id="masthead" class="site-header" role="banner">
 	   <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a>
         <div class="site-branding clearfix">
+            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/logo.svg" class="logo" alt="<?php bloginfo( 'name' ); ?>" />
             <?php
                 if ( is_front_page() && is_home() ) : ?>
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -40,14 +41,24 @@
         <button class="ui secondary-toggle">
             <i class="sidebar icon"></i>
         </button>
-        <div id="navigation" class="ui sidebar">toto</div>
+        <!-- <div class="ui action left icon input">
+          <i class="search icon"></i>
+          <input name="s" type="text" placeholder="">
+          <div class="ui button">Rechercher</div>
+        </div>-->
     </header><!-- .site-header -->
 
 
-	<div class="clearfix">
+	<div class="clearfix" id="nav-context">
+    <nav id="navigation" class="ui sidebar">
+        <?php wp_nav_menu(array(
+            'menu_class' => 'ui vertical menu inverted clearfix'
+        )); ?>
+    </nav>
+    <div class="pusher">
 	<aside id="leftside" class="ui rail">
 	   <div class="ui sticky">
-        <?php if ( is_single() ) : ?>
+        <?php if ( is_single() || is_page() ) : ?>
 		<?php dynamic_sidebar( 'left-single' ); ?>
         <?php else : ?>
 		<?php dynamic_sidebar( 'left' ); ?>

@@ -4,10 +4,20 @@ jQuery(function() {
         context: '#content'
       })
     ;
-
-    $('#masthead').each(function(i, header) {
-        $('#navigation', header)
-            .sidebar('setting', 'transition', 'overlay')
-            .sidebar('attach events', '#masthead .secondary-toggle');
-    });
+    $('#navigation')
+        .sidebar({
+            //context: "#nav-context",
+            scrollLock: true,
+            debug: true,
+            onVisible: function() {
+                $('#masthead .secondary-toggle > i').addClass('close').removeClass('sidebar');
+            },
+            onHide: function() {
+                $('#masthead .secondary-toggle > i').addClass('sidebar').removeClass('close');
+            }
+        })
+        .sidebar('setting', 'transition', 'overlay')
+        .sidebar('setting', 'transition', 'push')
+        .sidebar('setting', 'transition', 'uncover')
+        .sidebar('attach events', '#masthead .secondary-toggle');
 });
