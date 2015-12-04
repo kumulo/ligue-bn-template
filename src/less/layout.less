@@ -117,7 +117,6 @@ body {
         }
     }
     #content {
-        /*margin-top: 160px;*/
         padding-top: 20px;
         margin-left: 25%;
         margin-right: 25%;
@@ -165,7 +164,6 @@ body {
         &#rightside {
             float: right;
             right: 0;
-            background: red;
             @media @little-desktop {
                 width: 20%;
             }
@@ -228,6 +226,7 @@ body {
                                     text-align: right;
                                     height: 55px;
                                     border-bottom: 1px solid @dark-mid-grey;
+                                    position: relative;
                                 }
                                 .t1,
                                 .t2 {
@@ -238,11 +237,26 @@ body {
                                     font-weight: 800;
                                     box-sizing: border-box;
                                     padding-left: 20px;
+                                    .team-img {
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 0;
+                                        display: block;
+                                        width: 20px;
+                                        height: 20px;
+                                        margin-top: -10px;
+                                        background: #fff no-repeat center center;
+                                        background-size: cover;
+                                    }
                                 }
                                 .t2 {
                                     text-align: left;
                                     padding-right: 20px;
                                     padding-left: 0;
+                                    .team-img {
+                                        right: 0;
+                                        left: auto;
+                                    }
                                 }
                                 .score {
                                     width: 20%;
@@ -331,6 +345,12 @@ body {
             &:first-child {
                 margin-top: 0;
             }
+        }
+    }
+    &.logged-in {
+        #navigation,
+        #masthead {
+            top: 32px;
         }
     }
 }

@@ -6,7 +6,7 @@ jQuery(function() {
     ;
     $('#navigation')
         .sidebar({
-            //context: "#nav-context",
+            //context: "#page",
             scrollLock: true,
             debug: true,
             onVisible: function() {

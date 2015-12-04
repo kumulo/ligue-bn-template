@@ -9,36 +9,36 @@ class ClassementWidget extends WP_Widget {
                             array(
                                 't1' => array(
                                     'name' => "Les Têtes Noires",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Les-Tetes-Noires.jpg",
                                     'score' => 0
                                 ),
                                 't2' => array(
                                     'name' => "Mush magic's",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Mush-magic--s.png",
                                     'score' => 0
                                 )
                             ),
                             array(
                                 't1' => array(
                                     'name' => "Caras Galadhon Splinters",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Caras-Galadhon-Splinters.png",
                                     'score' => 1
                                 ),
                                 't2' => array(
                                     'name' => "Karak Helmets",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Karak-Helmets.png",
                                     'score' => 1
                                 )
                             ),
                             array(
                                 't1' => array(
                                     'name' => "Le Village sans prétention",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Le-Village-sans-pretention.png",
                                     'score' => 1
                                 ),
                                 't2' => array(
                                     'name' => "Les Pow de Croco",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Les-Pow-de-Croco.png",
                                     'score' => 1
                                 )
                             ),
@@ -50,96 +50,96 @@ class ClassementWidget extends WP_Widget {
                             array(
                                 't1' => array(
                                     'name' => "Nainduc du Baron",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Les-nainducs-du-Baron.png",
                                     'score' => 3
                                 ),
                                 't2' => array(
                                     'name' => "Cramp's gob's",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Cramp--s-gob--s.jpg",
                                     'score' => 0
                                 )
                             ),
                             array(
                                 't1' => array(
                                     'name' => "A Tribe Called Agro.",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_A-Tribe-Called-Agro..png",
                                     'score' => 0
                                 ),
                                 't2' => array(
                                     'name' => "Les Nécroglycérines",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Les-Necroglycerines.png",
                                     'score' => 1
                                 )
                             ),
                             array(
                                 't1' => array(
                                     'name' => "Mush magic's",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Mush-magic--s.png",
                                     'score' => 0
                                 ),
                                 't2' => array(
                                     'name' => "Les Véritables Momottes du Zodiaque",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Les-Veritables-Momottes-du-Zodiaque.png",
                                     'score' => 2
                                 )
                             ),
                             array(
                                 't1' => array(
                                     'name' => "La compagnie noire (slaans)",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_La-compagnie-noire-(slaans).png",
                                     'score' => 0
                                 ),
                                 't2' => array(
                                     'name' => "ottagueinberth quechttat",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_ottagueinberthquechttat.jpg",
                                     'score' => 2
                                 )
                             ),
                             array(
                                 't1' => array(
                                     'name' => "Les Homos Globines",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Les-Homos-Globines.png",
                                     'score' => 0
                                 ),
                                 't2' => array(
                                     'name' => "Kastagn'Ork",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Kastagn--Ork.png",
                                     'score' => 1
                                 )
                             ),
                             array(
                                 't1' => array(
                                     'name' => "Exskavenarks",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Exskavenarks.png",
                                     'score' => 2
                                 ),
                                 't2' => array(
                                     'name' => "Dark Grumpy Neighbours",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Dark-Grumpy-Neighbours.png",
                                     'score' => 1
                                 )
                             ),
                             array(
                                 't1' => array(
                                     'name' => "Le Werder de Brume",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Le-Werder-de-Brume.png",
                                     'score' => 0
                                 ),
                                 't2' => array(
                                     'name' => "Ogres et Préjugés",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Ogres-et-Prejuges.png",
                                     'score' => 2
                                 )
                             ),
                             array(
                                 't1' => array(
                                     'name' => "Grises Mines",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Grises-Mines.jpg",
                                     'score' => 0
                                 ),
                                 't2' => array(
                                     'name' => "Dirty Upsetters",
-                                    'logo' => "",
+                                    'logo' => "http://gestion.ligue-bn.com/logos/picto_Dirty-Upsetters.png",
                                     'score' => 3
                                 )
                             ),
@@ -169,9 +169,11 @@ class ClassementWidget extends WP_Widget {
             echo '<table class="matchs">';
             foreach($journey['encounters'] as $match) {
                 echo '<tr class="match clearfix">';
-                    echo '<td class="t1">' . $match['t1']['name'] . '</td>';
+                    $logo1 = ($match['t1']['logo']) ? '<span class="team-img" style="background-image: url(' . $match['t1']['logo'] . ');"></span>' : '';
+                    $logo2 = ($match['t2']['logo']) ? '<span class="team-img" style="background-image: url(' . $match['t2']['logo'] . ');"></span>' : '';
+                    echo '<td class="t1">' . $logo1 . $match['t1']['name'] . '</td>';
                     echo '<td class="score">' . $match['t1']['score'] . '-' . $match['t2']['score'] . '</td>';
-                    echo '<td class="t2">' . $match['t2']['name'] . '</td>';
+                    echo '<td class="t2">' . $match['t2']['name'] . $logo2 . '</td>';
                 echo '</tr>';
             }
             echo '</table>';
