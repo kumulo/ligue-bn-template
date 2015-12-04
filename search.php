@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file
+ * The template for displaying search results pages.
  *
  * @package WordPress
  * @subpackage Ligue_BN
@@ -8,27 +8,26 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
+			<header class="page-header">
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'liguebn' ), get_search_query() ); ?></h1>
+			</header><!-- .page-header -->
 
 			<?php
 			// Start the loop.
-			while ( have_posts() ) : the_post();
+			while ( have_posts() ) : the_post(); ?>
 
+				<?php
 				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				 * Run the loop for the search to output the results.
+				 * If you want to overload this in a child theme then include a file
+				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'content', get_post_format() );
+				get_template_part( 'content', 'search' );
 
 			// End the loop.
 			endwhile;
@@ -48,6 +47,6 @@ get_header(); ?>
 		?>
 
 		</main><!-- .site-main -->
-	</div><!-- .content-area -->
+	</section><!-- .content-area -->
 
 <?php get_footer(); ?>

@@ -32,20 +32,25 @@
 		?>
 	</header><!-- .entry-header -->
 
+	<footer class="entry-footer">
+		<?php liguebn_entry_meta(); ?>
+		<?php edit_post_link( __( 'Edit', 'liguebn' ), '<span class="edit-link">', '</span>' ); ?>
+	</footer><!-- .entry-footer -->
+
 	<div class="entry-content">
 		<?php
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
-				__( 'Continue reading %s', 'twentyfifteen' ),
+				__( 'Continue reading %s', 'liguebn' ),
 				the_title( '<span class="screen-reader-text">', '</span>', false )
 			) );
 
 			wp_link_pages( array(
-				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
+				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'liguebn' ) . '</span>',
 				'after'       => '</div>',
 				'link_before' => '<span>',
 				'link_after'  => '</span>',
-				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
+				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'liguebn' ) . ' </span>%',
 				'separator'   => '<span class="screen-reader-text">, </span>',
 			) );
 		?>
@@ -57,10 +62,5 @@
 			get_template_part( 'author-bio' );
 		endif;
 	?>
-
-	<footer class="entry-footer">
-		<?php //the_entry_meta(); ?>
-		<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->

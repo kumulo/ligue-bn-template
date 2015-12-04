@@ -22,7 +22,7 @@
 <div id="page" class="hfeed site">
 
     <header id="masthead" class="site-header" role="banner">
-	   <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a>
+	   <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'liguebn' ); ?></a>
         <div class="site-branding clearfix">
             <img src="<?php echo get_template_directory_uri(); ?>/dist/img/logo.svg" class="logo" alt="<?php bloginfo( 'name' ); ?>" />
             <?php
