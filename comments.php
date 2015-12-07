@@ -36,7 +36,7 @@ if ( post_password_required() ) {
 				wp_list_comments( array(
 					'style'       => 'ol',
 					'short_ping'  => true,
-					'avatar_size' => 56,
+					'avatar_size' => 50,
 				) );
 			?>
 		</ol><!-- .comment-list -->
@@ -52,6 +52,6 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'liguebn' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form(); ?>
+	<?php liguebn_comment_form(); ?>
 
 </div><!-- .comments-area -->

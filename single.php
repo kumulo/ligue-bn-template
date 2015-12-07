@@ -8,13 +8,13 @@
 
 get_header(); ?>
 
+	<div id="content" class="site-content">
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
-
+        <?php
+        // Start the loop.
+        while ( have_posts() ) : the_post();
 			/*
 			 * Include the post format-specific template for the content. If you want to
 			 * use this in a child theme, then include a file called called content-___.php
@@ -28,14 +28,14 @@ get_header(); ?>
 			endif;
 
 			// Previous/next post navigation.
-			the_post_navigation( array(
+			/*the_post_navigation( array(
 				'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'liguebn' ) . '</span> ' .
 					'<span class="screen-reader-text">' . __( 'Next post:', 'liguebn' ) . '</span> ' .
 					'<span class="post-title">%title</span>',
 				'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'liguebn' ) . '</span> ' .
 					'<span class="screen-reader-text">' . __( 'Previous post:', 'liguebn' ) . '</span> ' .
 					'<span class="post-title">%title</span>',
-			) );
+			) );*/
 
 		// End the loop.
 		endwhile;
@@ -43,5 +43,17 @@ get_header(); ?>
 
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
+
+	</div><!-- .site-content -->
+
+	<aside id="rightside" class="ui rail">
+	   <div class="ui sticky">
+        <?php if ( is_single() || is_page() ) : ?>
+		<?php dynamic_sidebar( 'right-single' ); ?>
+        <?php else : ?>
+		<?php dynamic_sidebar( 'right' ); ?>
+        <?php endif; ?>
+	   </div>
+	</aside><!-- .sidebar -->
 
 <?php get_footer(); ?>

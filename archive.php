@@ -16,6 +16,16 @@
  */
 
 get_header(); ?>
+	<aside id="leftside" class="ui rail">
+	   <div class="ui sticky">
+        <?php if ( is_single() || is_page() ) : ?>
+		<?php dynamic_sidebar( 'left-single' ); ?>
+        <?php else : ?>
+		<?php dynamic_sidebar( 'left' ); ?>
+        <?php endif; ?>
+	   </div>
+	</aside><!-- .sidebar -->
+	<div id="content" class="site-content">
 
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -59,5 +69,17 @@ get_header(); ?>
 
 		</main><!-- .site-main -->
 	</section><!-- .content-area -->
+
+	</div><!-- .site-content -->
+
+	<aside id="rightside" class="ui rail">
+	   <div class="ui sticky">
+        <?php if ( is_single() || is_page() ) : ?>
+		<?php dynamic_sidebar( 'right-single' ); ?>
+        <?php else : ?>
+		<?php dynamic_sidebar( 'right' ); ?>
+        <?php endif; ?>
+	   </div>
+	</aside><!-- .sidebar -->
 
 <?php get_footer(); ?>

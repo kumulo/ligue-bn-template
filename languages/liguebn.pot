@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ligue BN 1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/ligue-bn\n"
-"POT-Creation-Date: 2015-12-04 10:24:05+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/liguebn\n"
+"POT-Creation-Date: 2015-12-07 14:27:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "Next page"
 msgstr ""
 
-#: archive.php:50 content-link.php:39 content-page.php:28 content.php:53
+#: archive.php:50 content-link.php:39 content-page.php:28 content.php:57
 #: index.php:40 search.php:39
 msgid "Page"
 msgstr ""
@@ -44,15 +44,16 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
-#: content-gallery.php:26
+#. translators: %s: post title
+#: content-gallery.php:26 functions.php:130
 msgid "Leave a comment"
 msgstr ""
 
-#: content-gallery.php:26
+#: content-gallery.php:26 functions.php:130
 msgid "1 Comment"
 msgstr ""
 
-#: content-gallery.php:26
+#: content-gallery.php:26 functions.php:130
 msgid "% Comments"
 msgstr ""
 
@@ -67,12 +68,12 @@ msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
 #: content-gallery.php:42 content-link.php:35 content-page.php:24
-#: content.php:49
+#: content.php:53
 msgid "Pages:"
 msgstr ""
 
 #. translators: %s: Name of current post
-#: content-link.php:30 content.php:44
+#: content-link.php:30 content.php:45 functions.php:193
 msgid "Continue reading %s"
 msgstr ""
 
@@ -97,11 +98,11 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: footer.php:19
+#: footer.php:23
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: footer.php:19
+#: footer.php:23
 msgid "Proudly powered by %s"
 msgstr ""
 
@@ -122,103 +123,106 @@ msgctxt "Used before post format."
 msgid "Format"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:145
 msgctxt "Used before publish date."
 msgid "Posted on"
 msgstr ""
 
-#: functions.php:151
+#: functions.php:154
 msgctxt "Used before post author name."
-msgid "Author"
+msgid "By"
 msgstr ""
 
-#: functions.php:157 functions.php:165
+#: functions.php:160 functions.php:168
 msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr ""
 
-#: functions.php:160
+#: functions.php:163
 msgctxt "Used before category names."
-msgid "Categories"
+msgid "Posted in"
 msgstr ""
 
-#: functions.php:168
+#: functions.php:171
 msgctxt "Used before tag names."
 msgid "Tags"
 msgstr ""
 
-#: functions.php:179
+#: functions.php:182
 msgctxt "Used before full size attachment link."
 msgid "Full size"
 msgstr ""
 
-#. translators: %s: post title
-#: functions.php:189
-msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+#: functions.php:216
+msgid "Name"
 msgstr ""
 
-#: functions.php:237
+#: functions.php:222
+msgid "Email"
+msgstr ""
+
+#: functions.php:227
+msgid "Website"
+msgstr ""
+
+#: functions.php:228
+msgid "http://your-site-name.com"
+msgstr ""
+
+#: functions.php:233
+msgid "Comment"
+msgstr ""
+
+#: functions.php:283
 msgid "Comment navigation"
 msgstr ""
 
-#: functions.php:240
+#: functions.php:286
 msgid "Older Comments"
 msgstr ""
 
-#: functions.php:244
+#: functions.php:290
 msgid "Newer Comments"
 msgstr ""
 
-#: functions.php:263
+#: functions.php:309
 msgid "Left Side"
 msgstr ""
 
-#: functions.php:265 functions.php:274 functions.php:283
+#: functions.php:311 functions.php:320 functions.php:329 functions.php:338
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:272
+#: functions.php:318
 msgid "Right Side"
 msgstr ""
 
-#: functions.php:281
+#: functions.php:327
 msgid "Left Side for single pages"
+msgstr ""
+
+#: functions.php:336
+msgid "Right Side for single pages"
 msgstr ""
 
 #: header.php:25
 msgid "Skip to content"
 msgstr ""
 
-#: inc/custom-widget.php:199
+#: inc/custom-widget.php:201
 msgid "League results"
 msgstr ""
 
-#: inc/custom-widget.php:210
+#: inc/custom-widget.php:212
 msgid "Title:"
 msgstr ""
 
-#: inc/custom-widget.php:214
+#: inc/custom-widget.php:216
 msgid "Datas:"
 msgstr ""
 
 #: search.php:17
 msgid "Search Results for: %s"
-msgstr ""
-
-#: single.php:32
-msgid "Next"
-msgstr ""
-
-#: single.php:33
-msgid "Next post:"
-msgstr ""
-
-#: single.php:35
-msgid "Previous"
-msgstr ""
-
-#: single.php:36
-msgid "Previous post:"
 msgstr ""
 
 #. Theme Name of the plugin/theme

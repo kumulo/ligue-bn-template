@@ -31,19 +31,29 @@
 			endif;
 		?>
 	</header><!-- .entry-header -->
-
+    <?php if ( is_single() ) : ?>
+    <div id="leftside" class="ui rail">
+	   <div class="ui sticky">
+    <?php endif; ?>
 	<footer class="entry-footer">
 		<?php liguebn_entry_meta(); ?>
 		<?php edit_post_link( __( 'Edit', 'liguebn' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
-
+    <?php if ( is_single() ) : ?>
+	   </div>
+	</div><!-- .sidebar -->
+    <?php endif; ?>
 	<div class="entry-content">
 		<?php
+			if ( is_single() ) :
 			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading %s', 'liguebn' ),
-				the_title( '<span class="screen-reader-text">', '</span>', false )
-			) );
+                the_content( sprintf(
+                    __( 'Continue reading %s', 'liguebn' ),
+                    the_title( '<span class="screen-reader-text">', '</span>', false )
+                ) );
+			else :
+                the_excerpt();
+			endif;
 
 			wp_link_pages( array(
 				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'liguebn' ) . '</span>',
@@ -55,12 +65,5 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-
-	<?php
-		// Author bio.
-		if ( is_single() && get_the_author_meta( 'description' ) ) :
-			get_template_part( 'author-bio' );
-		endif;
-	?>
 
 </article><!-- #post-## -->

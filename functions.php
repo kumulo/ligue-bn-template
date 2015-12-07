@@ -115,40 +115,36 @@ function liguebn_entry_meta() {
 		printf( '<span class="sticky-post">%s</span>', __( 'Featured', 'liguebn' ) );
 	}
 
-	$format = get_post_format();
-	if ( current_theme_supports( 'post-formats', $format ) ) {
-		printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
-			sprintf( '<span class="screen-reader-text">%s </span>', _x( 'Format', 'Used before post format.', 'liguebn' ) ),
-			esc_url( get_post_format_link( $format ) ),
-			get_post_format_string( $format )
-		);
+	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		echo '<span class="comments-link">';
+		/* translators: %s: post title */
+		comments_popup_link( __( 'Leave a comment', 'liguebn' ), __( '1 Comment', 'liguebn' ), __( '% Comments', 'liguebn' ) );
+		echo '</span>';
 	}
 
 	if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
+		$time_string = '<time class="entry-date published updated clearfix" datetime="%1$s">%2$s</time>';
 
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( 'c' ) ),
-			get_the_date(),
+			'<span class="day">' . get_the_date('j') . '</span><span class="month">' . get_the_date('F') . '</span><span class="year">' . get_the_date('Y') . '</span>',
 			esc_attr( get_the_modified_date( 'c' ) ),
 			get_the_modified_date()
 		);
 
-		printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
+		printf( '<span class="posted-on"><h2 class="screen-reader-text">%1$s </h2>%2$s</span> ',
 			_x( 'Posted on', 'Used before publish date.', 'liguebn' ),
-			esc_url( get_permalink() ),
 			$time_string
 		);
 	}
 
 	if ( 'post' == get_post_type() ) {
-		if ( is_singular() || is_multi_author() ) {
-			printf( '<span class="byline"><span class="author vcard"><span class="screen-reader-text">%1$s </span><a class="url fn n" href="%2$s">%3$s</a></span></span>',
-				_x( 'Author', 'Used before post author name.', 'liguebn' ),
+		if ( is_singular() && get_the_author_meta( 'description' ) ) {
+			get_template_part( 'author-bio' );
+		}
+		else if (is_multi_author() ) {
+			printf( '<span class="byline"><span class="author vcard"><span class="screen-reader-text">%1$s </span><a class="url fn n" href="%2$s">%3$s</a></span></span> ',
+				_x( 'By', 'Used before post author name.', 'liguebn' ),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 				get_the_author()
 			);
@@ -156,39 +152,71 @@ function liguebn_entry_meta() {
 
 		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'liguebn' ) );
 		if ( $categories_list && liguebn_categorized_blog() ) {
-			printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-				_x( 'Categories', 'Used before category names.', 'liguebn' ),
+			printf( '<span class="cat-links"><h2 class="screen-reader-text">%1$s </h2>%2$s</span> ',
+				_x( 'Posted in', 'Used before category names.', 'liguebn' ),
 				$categories_list
 			);
 		}
 
 		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'liguebn' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+			printf( '<span class="tags-links"><h2 class="screen-reader-text">%1$s </h2>%2$s</span> ',
 				_x( 'Tags', 'Used before tag names.', 'liguebn' ),
 				$tags_list
 			);
 		}
 	}
+}
 
-	if ( is_attachment() && wp_attachment_is_image() ) {
-		// Retrieve attachment metadata.
-		$metadata = wp_get_attachment_metadata();
+function excerpt_read_more_link($output) {
+    global $post;
+    return $output . '<div class="more-link"><a class="ui button bngreen" href="'. get_permalink($post->ID) . '">' .
+            sprintf( __( 'Continue reading %s', 'liguebn' ), get_the_title()) .
+            '<i class="caret right icon"></i>' .
+        '</a></div>';
+}
+add_filter('the_excerpt', 'excerpt_read_more_link');
 
-		printf( '<span class="full-size-link"><span class="screen-reader-text">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
-			_x( 'Full size', 'Used before full size attachment link.', 'liguebn' ),
-			esc_url( wp_get_attachment_url() ),
-			$metadata['width'],
-			$metadata['height']
-		);
-	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		/* translators: %s: post title */
-		comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'liguebn' ), get_the_title() ) );
-		echo '</span>';
-	}
+if ( ! function_exists( 'liguebn_comment_form' ) ) :
+/**
+ * Prints HTML with meta information for the categories, tags.
+ */
+function liguebn_comment_form_before() {
+        echo '<div class="ui form">';
+}
+add_action( 'comment_form_before', 'liguebn_comment_form_before' );
+function liguebn_comment_notes_after() {
+        echo '</div>';
+}
+add_action( 'comment_notes_after', 'liguebn_comment_notes_after' );
+function liguebn_comment_form() {
+    $comment_args = array(
+        'fields' => apply_filters(
+            'comment_form_default_fields', array(
+                'author' => '<div class="field">' .
+                            '<label for="author">' . __( 'Name', 'liguebn' ) . '</label> ' .
+                            ( $req ? '<span class="required">*</span>' : '' ) .
+                            '<input id="author" name="author" type="text" value="' .
+                            esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' />' .
+                            '</div>',
+                'email'  => '<div class="field">' .
+                            '<label for="email">' . __( 'Email', 'liguebn' ) . '</label> ' .
+                            ( $req ? '<span class="required">*</span>' : '' ) .
+                            '<input id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' />' .
+                            '</div>',
+                'url'    => '<div class="field">' .
+                            '<label for="url">' . __( 'Website', 'liguebn' ) . '</label>' .
+                            '<input id="url" name="url" placeholder="' . __( 'http://your-site-name.com', 'liguebn' ) . '" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /> ' .
+                            '</div>'
+            )
+        ),
+        'comment_field' => '<div class="field">' .
+                    '<label for="comment">' . __( 'Comment', 'liguebn' ) . '</label>' .
+                    '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>' .
+                    '</div>',
+        'class_submit' => 'submit ui button'
+    );
+    comment_form($comment_args);
 }
 endif;
 
@@ -222,6 +250,7 @@ function liguebn_categorized_blog() {
 		return false;
 	}
 }
+endif;
 
 if ( ! function_exists( 'liguebn_comment_nav' ) ) :
 /**
@@ -278,6 +307,15 @@ function liguebn_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Left Side for single pages', 'liguebn' ),
 		'id'            => 'left-single',
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'liguebn' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Right Side for single pages', 'liguebn' ),
+		'id'            => 'right-single',
 		'description'   => __( 'Add widgets here to appear in your sidebar.', 'liguebn' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>',
