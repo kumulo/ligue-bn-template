@@ -127,7 +127,7 @@ function liguebn_entry_meta() {
 
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( 'c' ) ),
-			'<span class="day">' . get_the_date('j') . '</span><span class="month">' . get_the_date('F') . '</span><span class="year">' . get_the_date('Y') . '</span>',
+			'<span class="day">' . get_the_date('j') . ' </span><span class="month">' . get_the_date('F') . ' </span><span class="year">' . get_the_date('Y') . '</span>',
 			esc_attr( get_the_modified_date( 'c' ) ),
 			get_the_modified_date()
 		);
