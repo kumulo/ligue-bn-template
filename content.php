@@ -11,20 +11,20 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="entry-thumnail">
-        <?php if ( !is_single() ) : ?>
+        <?php if ( !is_single() && !is_page() ) : ?>
         <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 		<?php endif; ?>
         <?php
             // Post thumbnail.
             the_post_thumbnail('list-post-thumbnails');
         ?>
-        <?php if ( !is_single() ) : ?>
+        <?php if ( !is_single() && !is_page() ) : ?>
         </a>
 		<?php endif; ?>
     </div>
 	<header class="entry-header">
 		<?php
-			if ( is_single() ) :
+			if ( is_single() || is_page() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			else :
 				the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
@@ -45,7 +45,7 @@
     <?php endif; ?>
 	<div class="entry-content">
 		<?php
-			if ( is_single() ) :
+			if ( is_single() || is_page() ) :
 			/* translators: %s: Name of current post */
                 the_content( sprintf(
                     __( 'Continue reading %s', 'liguebn' ),

@@ -10,9 +10,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 		// Post thumbnail.
-	   <?php the_post_thumbnail('list-post-thumbnails'); ?>
+	    the_post_thumbnail('list-post-thumbnails');
 	?>
-
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
