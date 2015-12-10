@@ -13,7 +13,10 @@ module.exports = function(grunt) {
         files: {
           'dist/libs.min.js': [
             'bower_components/jquery/dist/jquery.js',
-            'bower_components/semantic/dist/semantic.js'
+            'bower_components/semantic/dist/semantic.js',
+            'bower_components/carouFredSel/jquery.carouFredSel-6.2.1-packed.js',
+            'bower_components/photoswipe/dist/photoswipe.min.js',
+            'bower_components/photoswipe/dist/photoswipe-ui-default.min.js'
           ]
         },
         sourceMapName: 'dist/libs.map'
@@ -21,6 +24,7 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'dist/app.min.js': [
+             "src/js/photoswipe.js",
              "src/js/front.js"
           ]
         },
@@ -102,6 +106,7 @@ module.exports = function(grunt) {
             filter: 'isFile',
             src: [
                 'bower_components/semantic/dist/semantic.css',
+                'bower_components/photoswipe/dist/photoswipe.css',
                 'src/css/vendor/reset5.css'
             ],
             dest: '.tmp/libs/', //themes/default/assets/fonts/

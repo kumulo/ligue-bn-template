@@ -12,6 +12,8 @@
   ],
   "dependencies": {
     "jquery": "2.1.4",
-    "semantic": "master"
+    "semantic": "master",
+    "carouFredSel": "master",
+    "photoswipe": "master"
   }
 }
