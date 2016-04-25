@@ -28,8 +28,14 @@
  * Set the content width based on the theme's design and stylesheet.
  *
  */
-
 if ( ! function_exists( 'liguebn_setup' ) ) :
+function my_image_sizes($sizes) {
+    $addsizes = array(
+    "gallery-thumbnails" => __( "Gallery thumbnails")
+    );
+    $newsizes = array_merge($sizes, $addsizes);
+    return $newsizes;
+}
 function liguebn_setup() {
     load_theme_textdomain( 'liguebn', get_template_directory() . '/languages' );
 
@@ -52,6 +58,8 @@ function liguebn_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 750, 345, true );
 	add_image_size( 'list-post-thumbnails',  750, 345, array( 'center', 'center') );
+	add_image_size( 'gallery-thumbnails',  400, 400, array( 'center', 'center') );
+    add_filter('image_size_names_choose', 'my_image_sizes');
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
@@ -73,7 +81,7 @@ function liguebn_setup() {
 	 * See: https://codex.wordpress.org/Post_Formats
 	 */
 	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
+		'aside', 'image', 'video', 'gallery', 'paquet'
 	) );
 	add_post_type_support( 'page', 'post-formats');
 }

@@ -121,6 +121,9 @@ body {
         padding-top: 20px;
         margin-left: 25%;
         margin-right: 25%;
+        &.no-left {
+            margin-left: 20px;
+        }
         @media @little-desktop {
             margin-left: 30%;
             margin-right: 20%;
@@ -550,6 +553,32 @@ body {
                 margin-top: 0;
             }
         }
+        #gallery-container {
+            .hentry {
+                .gallery {
+                    .gallery-item {
+                        width: (94% / 3);
+                        margin: 1%;
+                        overflow: hidden;
+                        float: left;
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                        .wp-caption-text {
+                            display: none;
+                        }
+                    }
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: 100%;
+                        visibility: hidden;
+                        clear: both;
+                    }
+                }
+            }
+        }
         #comments {
             background: @white;
             padding: 20px;
@@ -681,6 +710,48 @@ body {
             &:hover {
                 background-color: @light-green;
                 color: @black;
+            }
+        }
+    }
+}
+#swipebox-overlay {
+    #swipebox-container {
+        #swipebox-prev,
+        #swipebox-next,
+        #swipebox-close {
+            display: inline-block;
+            opacity: 1;
+            margin: 0 .25rem 0 0;
+            font-family: Icons;
+            font-style: normal;
+            font-weight: 400;
+            text-decoration: inherit;
+            text-align: center;
+            speak: none;
+            font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            background-image: none !important;
+            color: @white;
+            font-size: 400%;
+            line-height: 50px;
+            font-size: 40px;
+            &:before {
+                background: none!important;
+            }
+            &#swipebox-prev:before {
+                content: "\f060";
+            }
+            &#swipebox-next:before {
+                content: "\f061";
+            }
+            &#swipebox-close:before {
+                content: "\f00d";
+            }
+            &.disabled {
+                opacity: 0.3;
             }
         }
     }

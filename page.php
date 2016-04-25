@@ -11,16 +11,7 @@
  */
 
 get_header(); ?>
-	<aside id="leftside" class="ui rail">
-	   <div class="ui sticky">
-        <?php if ( is_single() || is_page() ) : ?>
-		<?php dynamic_sidebar( 'left-single' ); ?>
-        <?php else : ?>
-		<?php dynamic_sidebar( 'left' ); ?>
-        <?php endif; ?>
-	   </div>
-	</aside><!-- .sidebar -->
-	<div id="content" class="site-content">
+	<div id="content" class="site-content no-left">
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">

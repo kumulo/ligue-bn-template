@@ -15,8 +15,7 @@ module.exports = function(grunt) {
             'bower_components/jquery/dist/jquery.js',
             'bower_components/semantic/dist/semantic.js',
             'bower_components/carouFredSel/jquery.carouFredSel-6.2.1-packed.js',
-            'bower_components/photoswipe/dist/photoswipe.min.js',
-            'bower_components/photoswipe/dist/photoswipe-ui-default.min.js'
+            'bower_components/swipebox/src/js/jquery.swipebox.min.js'
           ]
         },
         sourceMapName: 'dist/libs.map'
@@ -56,6 +55,7 @@ module.exports = function(grunt) {
           'dist/libs.min.css': [
             '.tmp/libs/1.fonts.css',
             '.tmp/libs/semantic.css',
+            '.tmp/libs/swipebox.min.css',
             '.tmp/libs/reset5.css'
           ]
         }
@@ -106,7 +106,7 @@ module.exports = function(grunt) {
             filter: 'isFile',
             src: [
                 'bower_components/semantic/dist/semantic.css',
-                'bower_components/photoswipe/dist/photoswipe.css',
+                'bower_components/swipebox/src/css/swipebox.min.css',
                 'src/css/vendor/reset5.css'
             ],
             dest: '.tmp/libs/', //themes/default/assets/fonts/
