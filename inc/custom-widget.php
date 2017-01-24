@@ -170,8 +170,8 @@ class ClassementWidget extends WP_Widget {
             echo '<table class="matchs">';
             foreach($datas->$key->encounters as $match) {
                 echo '<tr class="match clearfix">';
-                    $logo1 = ($match->t1->logo) ? '<span class="team-img" style="background-image: url(' . $match->t1->logo . ');"></span>' : '';
-                    $logo2 = ($match->t2->logo) ? '<span class="team-img" style="background-image: url(' . $match->t2->logo . ');"></span>' : '';
+                    $logo1 = ($match->t1->logo) ? '<span title="' . $match->t1->name . '" class="team-img" style="background-image: url(' . $match->t1->logo . ');"></span>' : '';
+                    $logo2 = ($match->t2->logo) ? '<span title="' . $match->t2->name . '" class="team-img" style="background-image: url(' . $match->t2->logo . ');"></span>' : '';
                     echo '<td class="t1">' . $logo1 . '<span class="team-name">' . $match->t1->name . '</span></td>';
                     echo '<td class="score">' . $match->t1->score . '-' . $match->t2->score . '</td>';
                     echo '<td class="t2"><span class="team-name">' . $match->t2->name . '</span>' . $logo2 . '</td>';

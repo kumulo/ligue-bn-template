@@ -319,22 +319,22 @@ body {
                                     font-size: 140%;
                                     font-weight: 800;
                                     box-sizing: border-box;
-                                    padding-left: 20px;
+                                    padding-left: 40px;
                                     .team-img {
                                         position: absolute;
                                         top: 50%;
                                         left: 0;
                                         display: block;
-                                        width: 20px;
-                                        height: 20px;
-                                        margin-top: -10px;
-                                        background: #fff no-repeat center center;
+                                        width: 40px;
+                                        height: 40px;
+                                        margin-top: -20px;
+                                        background: no-repeat center center;
                                         background-size: cover;
                                     }
                                 }
                                 .t2 {
                                     text-align: left;
-                                    padding-right: 20px;
+                                    padding-right: 40px;
                                     padding-left: 0;
                                     .team-img {
                                         right: 0;
@@ -354,6 +354,12 @@ body {
                                     .t2,
                                     .score {
                                         border-top: 1px solid @dark-mid-grey;
+                                    }
+                                }
+
+                                @media @little-desktop {
+                                    .team-name {
+                                        display: none;
                                     }
                                 }
                             }
