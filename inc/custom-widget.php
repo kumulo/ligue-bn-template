@@ -153,7 +153,8 @@ class ClassementWidget extends WP_Widget {
 
 	function widget( $args, $instance ) {
         $title = apply_filters( 'widget_title', $instance['title'] );
-        $datas = $instance['datas'];
+        $brutdatas = file_get_contents($instance['datas']);
+        $datas = json_decode($brutdatas);
         // before and after widget arguments are defined by themes
         echo $args['before_widget'];
         if ( ! empty( $title ) )
@@ -163,17 +164,17 @@ class ClassementWidget extends WP_Widget {
         <div class="widget-content clearfix <?php echo htmlentities(($datas) ? $datas : json_encode( $this->default_datas )); ?>">
         <?php
         echo '<ul class="clearfix journeys">';
-        foreach($this->default_datas as $journey) {
+        foreach($datas as $key => $journey) {
             echo '<li class="journey clearfix">';
-            echo '<h3 class="journey-title">' . $journey['name'] . ' :</h3>';
+            echo '<h3 class="journey-title">' . $datas->$key->name . ' :</h3>';
             echo '<table class="matchs">';
-            foreach($journey['encounters'] as $match) {
+            foreach($datas->$key->encounters as $match) {
                 echo '<tr class="match clearfix">';
-                    $logo1 = ($match['t1']['logo']) ? '<span class="team-img" style="background-image: url(' . $match['t1']['logo'] . ');"></span>' : '';
-                    $logo2 = ($match['t2']['logo']) ? '<span class="team-img" style="background-image: url(' . $match['t2']['logo'] . ');"></span>' : '';
-                    echo '<td class="t1">' . $logo1 . $match['t1']['name'] . '</td>';
-                    echo '<td class="score">' . $match['t1']['score'] . '-' . $match['t2']['score'] . '</td>';
-                    echo '<td class="t2">' . $match['t2']['name'] . $logo2 . '</td>';
+                    $logo1 = ($match->t1->logo) ? '<span class="team-img" style="background-image: url(' . $match->t1->logo . ');"></span>' : '';
+                    $logo2 = ($match->t2->logo) ? '<span class="team-img" style="background-image: url(' . $match->t2->logo . ');"></span>' : '';
+                    echo '<td class="t1">' . $logo1 . $match->t1->name . '</td>';
+                    echo '<td class="score">' . $match->t1->score . '-' . $match->t2->score . '</td>';
+                    echo '<td class="t2">' . $match->t2->name . $logo2 . '</td>';
                 echo '</tr>';
             }
             echo '</table>';
