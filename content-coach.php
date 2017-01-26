@@ -31,7 +31,7 @@
                 <ul class="palmares clearfix">
                     <?php foreach(get_field('palmares') as $coupe) : ?>
                     <li class="element">
-                        <span class="icon"><?php echo wp_get_attachment_image($coupe['icone'], false); ?></span>
+                        <span class="icon"><?php echo wp_get_attachment_image($coupe['icone']['ID'], false); ?></span>
                         <span class="titre"><?php echo $coupe['titre']; ?></span>
                         <span class="annee"><?php echo $coupe['annee']; ?></span>
                     </li>
@@ -44,22 +44,78 @@
     </div>
     <div class="equipes clearfix">
         <?php
-        $args = array(
-            'post_type' => 'equipe',
-            'meta_query' => array(
-                array(
-                    'key' => 'coach', // name of custom field
-                    'value' => get_the_ID()
-                )
-            )
-        );
-        $equipes = get_posts( $args );
-        if($equipes): ?>
-        <ul>
-        <?php foreach($equipes as $equipe): ?>
-            <li><?php echo get_the_title( $equipe->ID ); ?></li>
+        if(get_field('equipes') || get_field('equipes_coupe') || get_field('equipes_old') || get_field('equipes_db')): ?>
+        <header class="entry-header">
+            <h2 class="entry-title">Equipes coachées</h2>
+        </header>
+        <?php if(get_field('equipes')): ?>
+        <ul class="elements clearfix">
+        <?php foreach(get_field('equipes') as $equipe): ?>
+            <li class="element team">
+                <div class="team-compet"><?php echo get_the_title( $equipe['competition']->ID ); ?></div>
+                <h3 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h3>
+                <div class="team-logo">
+                <?php
+                    // Post thumbnail.
+                    echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                ?>
+                </div>
+                <div class="team-position"><?php echo $equipe['classement']; ?></div>
+            </li>
         <?php endforeach; ?>
         </ul>
+        <?php endif; ?>
+        <?php if(get_field('equipes_coupe')): ?>
+        <ul class="elements clearfix">
+        <?php foreach(get_field('equipes_coupe') as $equipe): ?>
+            <li class="element team">
+                <div class="team-compet"><?php echo get_the_title( $equipe['competition']->ID ); ?></div>
+                <h3 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h3>
+                <div class="team-logo">
+                <?php
+                    // Post thumbnail.
+                    echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                ?>
+                </div>
+                <div class="team-position"><?php echo $equipe['classement']; ?></div>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+        <?php if(get_field('equipes_old')): ?>
+        <ul class="elements clearfix">
+        <?php foreach(get_field('equipes_old') as $equipe): ?>
+            <li class="element team">
+                <div class="team-compet"><?php echo get_the_title( $equipe['competition']->ID ); ?></div>
+                <h3 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h3>
+                <div class="team-logo">
+                <?php
+                    // Post thumbnail.
+                    echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                ?>
+                </div>
+                <div class="team-position"><?php echo $equipe['classement']; ?></div>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+        <?php if(get_field('equipes_db')): ?>
+        <ul class="elements clearfix">
+        <?php foreach(get_field('equipes_db') as $equipe): ?>
+            <li class="element team">
+                <div class="team-compet"><?php echo get_the_title( $equipe['competition']->ID ); ?></div>
+                <h3 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h3>
+                <div class="team-logo">
+                <?php
+                    // Post thumbnail.
+                    echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                ?>
+                </div>
+                <div class="team-position"><?php echo $equipe['classement']; ?></div>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
         <?php endif; ?>
     </div>
 

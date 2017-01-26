@@ -834,6 +834,26 @@ body {
                             }
                         }
                     }
+                    .equipes {
+                        .elements {
+                            padding-left: 20px;
+                            .element {
+                                float: left;
+                                width: ~ 'calc(20% - 20px)';
+                                margin-right: 20px;
+                                margin-bottom: 20px;
+                                @media @smartphones, @tablets-v {
+                                    width: ~ 'calc(33% - 20px)';
+                                }
+                                .team-logo {
+                                    img {
+                                        width: 100%;
+                                        height: auto;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

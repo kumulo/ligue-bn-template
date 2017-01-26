@@ -60,6 +60,7 @@ function liguebn_setup() {
 	add_image_size( 'list-post-thumbnails',  750, 345, array( 'center', 'center') );
 	add_image_size( 'gallery-thumbnails',  400, 400, array( 'center', 'center') );
 	add_image_size( 'coach-thumbnails',  330, 550, array( 'center', 'center') );
+    add_image_size( 'team-logo', 300, 300, array( 'center', 'center') );
     add_filter('image_size_names_choose', 'my_image_sizes');
 
 	// This theme uses wp_nav_menu() in two locations.
