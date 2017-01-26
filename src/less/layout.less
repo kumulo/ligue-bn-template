@@ -723,6 +723,36 @@ body {
                 }
             }
         }
+        #coacharchive {
+            padding: 0 20px 0 0;
+            .coachs {
+                .coach {
+                    width: ~ 'calc(33.33% - 20px)';
+                    float: left;
+                    margin: 0 0 20px 20px;
+                    overflow: hidden;
+                    position: relative;
+                    @media @smartphones, @tablets-v {
+                        width: ~ 'calc(50% - 20px)';
+                    }
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                    .coach-header {
+                        position: absolute;
+                        right: 0;
+                        left: 0;
+                        bottom: 0;
+                        padding: 20px;
+                        background: rgba(0,0,0,0.5);
+                        color: #fff;
+                        text-align: center;
+                        font-size: 140%;
+                    }
+                }
+            }
+        }
     }
     &.logged-in {
         #navigation,

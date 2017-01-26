@@ -59,6 +59,7 @@ function liguebn_setup() {
 	set_post_thumbnail_size( 750, 345, true );
 	add_image_size( 'list-post-thumbnails',  750, 345, array( 'center', 'center') );
 	add_image_size( 'gallery-thumbnails',  400, 400, array( 'center', 'center') );
+	add_image_size( 'coach-thumbnails',  330, 550, array( 'center', 'center') );
     add_filter('image_size_names_choose', 'my_image_sizes');
 
 	// This theme uses wp_nav_menu() in two locations.
@@ -349,5 +350,15 @@ function add_menu_item_class( $items ) {
 	return $items;
 }
 add_filter( 'wp_nav_menu_objects', 'add_menu_item_class' );
+
+function my_theme_archive_title( $title ) {
+    if ( get_post_type() == 'coach' ) {
+        $title = "Le paquet de BN";
+    }
+
+    return $title;
+}
+
+add_filter( 'get_the_archive_title', 'my_theme_archive_title' );
 
 require get_template_directory() . '/inc/custom-widget.php';
