@@ -43,7 +43,7 @@
                 <?php endif; ?>
                 <h2>Distinctions</h2>
                 <?php if ( get_field('informations') ) : ?>
-                <ul class="palmares clearfix">
+                <ul class="distinctions clearfix">
                     <?php foreach(get_field('informations') as $coupe) : ?>
                     <li class="element">
                         <span class="icon"><?php echo wp_get_attachment_image($coupe['icone']['ID'], false); ?></span>
