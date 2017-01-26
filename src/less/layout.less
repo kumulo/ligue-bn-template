@@ -798,12 +798,29 @@ body {
                         @media @smartphones, @tablets-v {
                             width: 50%;
                         }
+                        @media @mobiles {
+                            display: none;
+                        }
                     }
                     .right-part {
                         width: ~'calc(100% - 330px)';
                         float: left;
                         @media @smartphones, @tablets-v {
                             width: 50%;
+                        }
+                        @media @mobiles {
+                            width: 100%;
+                        }
+                        .entry-footer {
+                            font-size: 140%;
+                            font-style: normal;
+                            text-transform: uppercase;
+                            > * {
+                                margin-top: 5px;
+                            }
+                            > *:first-child {
+                                margin-top: 0;
+                            }
                         }
                         .palmares {
                             .element {
@@ -835,6 +852,16 @@ body {
                         }
                     }
                     .equipes {
+                        .compet-title {
+                            padding: 0 20px 20px;
+                            font-size: 160%;
+                            color: @black;
+                            text-transform: uppercase;
+                            font-weight: 800;
+                            .count {
+                                color: @mid-green;
+                            }
+                        }
                         .elements {
                             padding-left: 20px;
                             .element {
@@ -842,8 +869,21 @@ body {
                                 width: ~ 'calc(20% - 20px)';
                                 margin-right: 20px;
                                 margin-bottom: 20px;
+                                text-align: center;
                                 @media @smartphones, @tablets-v {
                                     width: ~ 'calc(33% - 20px)';
+                                }
+                                @media @mobiles {
+                                    width: ~ 'calc(50% - 20px)';
+                                }
+                                .team-compet {
+                                    color: @mid-green;
+                                    padding-bottom: 5px;
+                                    font-size: 140%
+                                }
+                                .team-name {
+                                    font-size: 140%;
+                                    text-transform: uppercase;
                                 }
                                 .team-logo {
                                     img {

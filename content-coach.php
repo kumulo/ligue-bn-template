@@ -21,8 +21,8 @@
                 <?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span><!-- .entry-footer -->' ); ?>
             </header><!-- .entry-header -->
             <footer class="entry-footer">
-                <div class="num">#<?php echo get_field( 'numero_adherent' ) ?></div>
-                <div class="annee">Saison <?php echo get_field( 'saison' ) ?></div>
+                <div class="num">BN #<?php echo get_field( 'numero_adherent' ) ?></div>
+                <div class="annee"><?php the_title(); ?> est arrivé en saison <?php echo get_field( 'saison' ) ?></div>
             </footer>
 
             <div class="entry-content">
@@ -64,70 +64,82 @@
         <header class="entry-header">
             <h2 class="entry-title">Equipes coachées</h2>
         </header>
-        <?php if(get_field('equipes')): ?>
+        <?php $equipes = get_field('equipes');
+        if($equipes): ?>
+        <h3 class="compet-title">Saisons Ligue BN <span class="count">(<?php echo count($equipes); ?>)</span></h3>
         <ul class="elements clearfix">
-        <?php foreach(get_field('equipes') as $equipe): ?>
+        <?php foreach($equipes as $equipe): ?>
             <li class="element team">
                 <div class="team-compet"><?php echo get_the_title( $equipe['competition']->ID ); ?></div>
-                <h3 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h3>
                 <div class="team-logo">
                 <?php
                     // Post thumbnail.
                     echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
                 ?>
                 </div>
-                <div class="team-position"><?php echo $equipe['classement']; ?></div>
+                <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
+                <div class="team-compet"><?php echo the_field( 'roster', $equipe['franchise'] ); ?></div>
+                <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
         <?php endforeach; ?>
         </ul>
         <?php endif; ?>
-        <?php if(get_field('equipes_coupe')): ?>
+        <?php $equipes = get_field('equipes_coupe');
+        if($equipes): ?>
+        <h3 class="compet-title">Coupes BN <span class="count">(<?php echo count($equipes); ?>)</span></h3>
         <ul class="elements clearfix">
-        <?php foreach(get_field('equipes_coupe') as $equipe): ?>
+        <?php foreach($equipes as $equipe): ?>
             <li class="element team">
                 <div class="team-compet"><?php echo get_the_title( $equipe['competition']->ID ); ?></div>
-                <h3 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h3>
                 <div class="team-logo">
                 <?php
                     // Post thumbnail.
                     echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
                 ?>
                 </div>
-                <div class="team-position"><?php echo $equipe['classement']; ?></div>
+                <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
+                <div class="team-compet"><?php echo the_field( 'roster', $equipe['franchise'] ); ?></div>
+                <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
         <?php endforeach; ?>
         </ul>
         <?php endif; ?>
-        <?php if(get_field('equipes_old')): ?>
+        <?php $equipes = get_field('equipes_old');
+        if($equipes): ?>
+        <h3 class="compet-title">Oldbowl &amp; Death bowl <span class="count">(<?php echo count($equipes); ?>)</span></h3>
         <ul class="elements clearfix">
-        <?php foreach(get_field('equipes_old') as $equipe): ?>
+        <?php foreach($equipes as $equipe): ?>
             <li class="element team">
                 <div class="team-compet"><?php echo get_the_title( $equipe['competition']->ID ); ?></div>
-                <h3 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h3>
                 <div class="team-logo">
                 <?php
                     // Post thumbnail.
                     echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
                 ?>
                 </div>
-                <div class="team-position"><?php echo $equipe['classement']; ?></div>
+                <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
+                <div class="team-compet"><?php echo the_field( 'roster', $equipe['franchise'] ); ?></div>
+                <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
         <?php endforeach; ?>
         </ul>
         <?php endif; ?>
-        <?php if(get_field('equipes_db')): ?>
+        <?php $equipes = get_field('equipes_db');
+        if($equipes): ?>
+        <h3 class="compet-title">Tournois Dragonbowl &amp; 7 Bowl de Crystal <span class="count">(<?php echo count($equipes); ?>)</span></h3>
         <ul class="elements clearfix">
         <?php foreach(get_field('equipes_db') as $equipe): ?>
             <li class="element team">
                 <div class="team-compet"><?php echo get_the_title( $equipe['competition']->ID ); ?></div>
-                <h3 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h3>
                 <div class="team-logo">
                 <?php
                     // Post thumbnail.
                     echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
                 ?>
                 </div>
-                <div class="team-position"><?php echo $equipe['classement']; ?></div>
+                <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
+                <div class="team-compet"><?php echo the_field( 'roster', $equipe['franchise'] ); ?></div>
+                <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
         <?php endforeach; ?>
         </ul>
