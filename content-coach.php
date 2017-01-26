@@ -18,6 +18,7 @@
         <div class="right-part">
             <header class="entry-header">
                 <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                <?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span><!-- .entry-footer -->' ); ?>
             </header><!-- .entry-header -->
             <footer class="entry-footer">
                 <div class="num">#<?php echo get_field( 'numero_adherent' ) ?></div>
@@ -26,8 +27,8 @@
 
             <div class="entry-content">
                 <?php the_content(); ?>
-                <?php if ( get_field('palmares') ) : ?>
                 <h2>Palmarès</h2>
+                <?php if ( get_field('palmares') ) : ?>
                 <ul class="palmares clearfix">
                     <?php foreach(get_field('palmares') as $coupe) : ?>
                     <li class="element">
@@ -37,8 +38,23 @@
                     </li>
                     <?php endforeach; ?>
                 </ul>
+                <?php else : ?>
+                Cette étagère est encore vide !
                 <?php endif; ?>
-                <?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span><!-- .entry-footer -->' ); ?>
+                <h2>Distinctions</h2>
+                <?php if ( get_field('informations') ) : ?>
+                <ul class="palmares clearfix">
+                    <?php foreach(get_field('informations') as $coupe) : ?>
+                    <li class="element">
+                        <span class="icon"><?php echo wp_get_attachment_image($coupe['icone']['ID'], false); ?></span>
+                        <span class="titre"><?php echo $coupe['titre']; ?></span>
+                        <span class="annee"><?php echo $coupe['annee']; ?></span>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php else : ?>
+                Cette étagère est encore vide !
+                <?php endif; ?>
             </div><!-- .entry-content -->
         </div>
     </div>
