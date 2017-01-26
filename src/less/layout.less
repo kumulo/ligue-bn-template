@@ -732,23 +732,47 @@ body {
                     margin: 0 0 20px 20px;
                     overflow: hidden;
                     position: relative;
+                    @media @big-desktop  {
+                        width: ~ 'calc(25% - 20px)';
+                    }
                     @media @smartphones, @tablets-v {
                         width: ~ 'calc(50% - 20px)';
                     }
-                    img {
-                        width: 100%;
-                        height: auto;
-                    }
-                    .coach-header {
-                        position: absolute;
-                        right: 0;
-                        left: 0;
-                        bottom: 0;
-                        padding: 20px;
-                        background: rgba(0,0,0,0.5);
-                        color: #fff;
-                        text-align: center;
-                        font-size: 140%;
+                    a {
+                        color: @white;
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                        .coach-header {
+                            position: absolute;
+                            right: 0;
+                            left: 0;
+                            bottom: 0;
+                            padding: 20px;
+                            background: rgba(0,0,0,0.5);
+                            color: #fff;
+                            text-align: center;
+                            .entry-title {
+                                font-size: 180%;
+                                font-weight: 300;
+                                text-transform: uppercase;
+                            }
+                        }
+                        .coach-metas {
+                            .num,
+                            .annee {
+                                position: absolute;
+                                top: 10px;
+                                right: 0;
+                                padding: 5px 10px;
+                                background: @mid-green;
+                                font-size: 130%;
+                            }
+                            .annee {
+                                top: 40px;
+                            }
+                        }
                     }
                 }
             }
@@ -758,6 +782,60 @@ body {
         #navigation,
         #masthead {
             top: 32px;
+        }
+    }
+    &.single {
+        #primary {
+            .hentry {
+                &.coach {
+                    .left-part {
+                        float: left;
+                        max-width: 330px;
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                        @media @smartphones, @tablets-v {
+                            width: 50%;
+                        }
+                    }
+                    .right-part {
+                        width: ~'calc(100% - 330px)';
+                        float: left;
+                        @media @smartphones, @tablets-v {
+                            width: 50%;
+                        }
+                        .palmares {
+                            .element {
+                                float: left;
+                                margin-right: 20px;
+                                margin-bottom: 20px;
+                                .icon,
+                                .titre,
+                                .annee {
+                                    display: block;
+                                    text-align: center;
+                                }
+                                .icon {
+                                    img {
+                                        height: 100px;
+                                        width: auto;
+                                    }
+                                }
+                                .titre {
+                                    font-size: 120%;
+                                    text-transform: uppercase;
+                                    font-weight: 300;
+                                }
+                                .annee {
+                                    color: @dark-grey;
+                                    font-style: italic;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
