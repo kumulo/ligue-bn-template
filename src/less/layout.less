@@ -838,8 +838,11 @@ body {
                                 .icon {
                                     img {
                                         display: inline-block;
-                                        height: 200px;
+                                        height: 180px;
                                         width: auto;
+                                        @media @smartphones {
+                                            height: 150px;
+                                        }
                                     }
                                 }
                                 .titre {
@@ -857,7 +860,7 @@ body {
                             .element {
                                 .icon {
                                     img {
-                                        height: 100px;
+                                        height: 80px;
                                     }
                                 }
                             }
