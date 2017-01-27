@@ -840,7 +840,7 @@ body {
                                         display: inline-block;
                                         height: 180px;
                                         width: auto;
-                                        @media @smartphones {
+                                        @media @smartphones, @tablets-v {
                                             height: 150px;
                                         }
                                     }
@@ -861,6 +861,9 @@ body {
                                 .icon {
                                     img {
                                         height: 80px;
+                                        @media @smartphones, @tablets-v {
+                                            height: 50px;
+                                        }
                                     }
                                 }
                             }
