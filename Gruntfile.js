@@ -117,6 +117,15 @@ module.exports = function(grunt) {
                 },
             }
         },
+        cssImages: {
+            expand: true,
+            filter: 'isFile',
+            src: [
+                'bower_components/swipebox/src/img/*'
+            ],
+            dest: 'dist/img/swipebox', //themes/default/assets/fonts/
+            flatten: true
+        },
     },
     googlefonts : {
         build: {
@@ -153,6 +162,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['css', 'javascript']);
   grunt.registerTask('fonts', ['googlefonts', 'copy:fontIcons', 'copy:fonts']);
   grunt.registerTask('javascript', ['uglify:libs', 'uglify:dist']);
-  grunt.registerTask('localcsscompile', ['less', 'cssmin']);
+  grunt.registerTask('localcsscompile', ['less', 'cssmin', 'copy:cssImages']);
   grunt.registerTask('css', ['fonts', 'copy:cssLibs', 'localcsscompile']);
 };
