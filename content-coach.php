@@ -11,8 +11,14 @@
     <div class="clearfix">
         <div class="left-part">
         <?php
-            // Post thumbnail.
+        // Post thumbnail.
+        if ( has_post_thumbnail() ) {
             the_post_thumbnail('coach-thumbnails');
+        }
+        else {
+            echo '<img src="' . get_bloginfo( 'stylesheet_directory' )
+                . '/images/coach-default.pmg" />';
+        }
         ?>
         </div>
         <div class="right-part">
