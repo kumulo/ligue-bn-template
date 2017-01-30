@@ -78,7 +78,7 @@
                 ?>
                 </div>
                 <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
-                <div class="team-compet"><?php echo the_field( 'roster', $equipe['franchise'] ); ?></div>
+                <div class="team-compet"><?php echo $equipe['roster'] ; ?></div>
                 <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
         <?php endforeach; ?>
@@ -98,7 +98,7 @@
                 ?>
                 </div>
                 <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
-                <div class="team-compet"><?php echo the_field( 'roster', $equipe['franchise'] ); ?></div>
+                <div class="team-compet"><?php echo $equipe['roster'] ; ?></div>
                 <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
         <?php endforeach; ?>
@@ -138,7 +138,7 @@
                 ?>
                 </div>
                 <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
-                <div class="team-compet"><?php echo the_field( 'roster', $equipe['franchise'] ); ?></div>
+                <div class="team-compet"><?php echo $equipe['roster'] ; ?></div>
                 <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
         <?php endforeach; ?>
