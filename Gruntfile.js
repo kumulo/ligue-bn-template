@@ -162,6 +162,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['css', 'javascript']);
   grunt.registerTask('fonts', ['googlefonts', 'copy:fontIcons', 'copy:fonts']);
   grunt.registerTask('javascript', ['uglify:libs', 'uglify:dist']);
-  grunt.registerTask('localcsscompile', ['less', 'cssmin', 'copy:cssImages']);
+  grunt.registerTask('localcsscompile', ['copy:cssImages', 'less', 'cssmin']);
   grunt.registerTask('css', ['fonts', 'copy:cssLibs', 'localcsscompile']);
 };
