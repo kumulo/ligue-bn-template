@@ -13,8 +13,8 @@
     <a href="<?php echo esc_url( get_permalink() ); ?>">
         <div class="coach-thumnail">
             <?php
-                // Post thumbnail.
-                the_post_thumbnail('coach-thumbnails');
+            // Post thumbnail.
+            the_post_thumbnail('coach-thumbnails');
             ?>
         </div>
 
@@ -28,7 +28,7 @@
             ?>
         </header>
         <footer class="coach-metas">
-            <span class="num">#<?php echo get_field( 'numero_adherent' ) ?></span>
+            <span class="num"><?php echo get_field( 'type' ) ?> #<?php echo get_field( 'numero_adherent' ) ?></span>
             <span class="annee">Saison <?php echo get_field( 'saison' ) ?></span>
         </footer>
 	<!-- .entry-header -->
