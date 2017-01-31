@@ -74,7 +74,11 @@
                 <div class="team-logo">
                 <?php
                     // Post thumbnail.
-                    echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                    if(has_post_thumbnail( $equipe['franchise']->ID )):
+                        echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                    else:
+                        echo '<img src="' . get_template_directory_uri() . '/dist/img/team-default.png" />';
+                    endif;
                 ?>
                 </div>
                 <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
@@ -118,7 +122,11 @@
                 <div class="team-logo">
                 <?php
                     // Post thumbnail.
-                    echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                    if(has_post_thumbnail( $equipe['franchise']->ID )):
+                        echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                    else:
+                        echo '<img src="' . get_template_directory_uri() . '/dist/img/team-default.png" />';
+                    endif;
                 ?>
                 </div>
                 <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
@@ -138,7 +146,11 @@
                 <div class="team-logo">
                 <?php
                     // Post thumbnail.
-                    echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                    if(has_post_thumbnail( $equipe['franchise']->ID )):
+                        echo get_the_post_thumbnail($equipe['franchise']->ID, 'team-logo');
+                    else:
+                        echo '<img src="' . get_template_directory_uri() . '/dist/img/team-default.png" />';
+                    endif;
                 ?>
                 </div>
                 <h4 class="team-name"><?php echo get_the_title( $equipe['franchise']->ID ); ?></h4>
