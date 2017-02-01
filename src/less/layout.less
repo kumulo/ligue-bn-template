@@ -919,6 +919,35 @@ body {
                                     }
                                 }
                             }
+                            .sep {
+                                display: none;
+                                &:after {
+                                    content: "";
+                                    display: block;
+                                    height: 0;
+                                    clear: both;
+                                    visibility: hidden;
+                                }
+                                &:nth-child(5n+0) {
+                                    display: block;
+                                }
+                                @media @smartphones, @tablets-v {
+                                    &:nth-child(5n+0) {
+                                        display: none;
+                                    }
+                                    &:nth-child(3n+0) {
+                                        display: block;
+                                    }
+                                }
+                                @media @mobiles {
+                                    &:nth-child(5n+0) {
+                                        display: none;
+                                    }
+                                    &:nth-child(2n+0) {
+                                        display: block;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

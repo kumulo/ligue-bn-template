@@ -85,6 +85,7 @@
                 <div class="team-compet"><?php echo $equipe['roster'] ; ?></div>
                 <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
+            <li class="sep"></li>
         <?php endforeach; ?>
         </ul>
         <?php endif; ?>
@@ -109,6 +110,7 @@
                 <div class="team-compet"><?php echo $equipe['roster'] ; ?></div>
                 <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
+            <li class="sep"></li>
         <?php endforeach; ?>
         </ul>
         <?php endif; ?>
@@ -133,6 +135,7 @@
                 <div class="team-compet"><?php echo $equipe['roster'] ; ?></div>
                 <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
+            <li class="sep"></li>
         <?php endforeach; ?>
         </ul>
         <?php endif; ?>
@@ -157,6 +160,7 @@
                 <div class="team-compet"><?php echo $equipe['roster'] ; ?></div>
                 <div class="team-position"><?php echo ($equipe['classement']) ? 'Position : '.$equipe['classement'] : '-'; ?></div>
             </li>
+            <li class="sep"></li>
         <?php endforeach; ?>
         </ul>
         <?php endif; ?>
