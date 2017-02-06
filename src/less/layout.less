@@ -6,6 +6,27 @@ body {
     color: @black;
     background: @mid-grey;
     font-weight: 400;
+    strong, b {font-weight: bold;}
+    em, i {font-style: italic;}
+    sup {vertical-align: top; font-size: 60%;}
+    body {font-size: 16px;}
+    a {color: @white;}
+    .marge_auto {margin-left: auto; margin-right: auto;}
+    .ui-tabs-hide {display: none;}
+    .imgBt {display: block; background-position: top left; background-repeat: no-repeat; background-color: transparent; border: none; outline: 0 none; padding: 0; margin: 0; cursor: pointer;}
+    a.imgBt:hover,
+    input.imgBt:hover {background-position: bottom left;}
+    .imgBt span {display: none;}
+    .mark {white-space: nowrap;}
+
+    a, input, .with-transition {
+      -webkit-transition: background-color .2s ease-out, color .2s ease-out, text-decoration .2s ease-out, border-color .2s ease-out;
+      -moz-transition: background-color .2s ease-out, color .2s ease-out, text-decoration .2s ease-out, border-color .2s ease-out;
+      -o-transition: background-color .2s ease-out, color .2s ease-out, text-decoration .2s ease-out, border-color .2s ease-out;
+      transition: background-color .2s ease-out, color .2s ease-out, text-decoration .2s ease-out, border-color .2s ease-out;
+    }
+
+
     &.pushable {
         background: @mid-grey;
         >.pusher {
@@ -531,6 +552,26 @@ body {
                 h5 {
                     font-size: 110%;
                     text-transform: uppercase;
+                }
+                ul{
+                    > li {
+                        list-style: outside disc;
+                    }
+                }
+                ol {
+                    > li {
+                        list-style: outside decimal;
+                    }
+                }
+                ol,
+                ul {
+                    > li {
+                        margin-left: 25px;
+                        margin-top: 5px;
+                    }
+                    > li:first-child {
+                        margin-top: 0;
+                    }
                 }
                 img {
                     display: block;
